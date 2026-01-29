@@ -25,7 +25,7 @@ app.use(session({
 }));
 
 app.get("/health", (req, res) => {
-  res.json({ status: "API is running" });
+  res.json({ message: "API is running" });
 });
 // app.use("/api/config", configRoute);
 app.use("/api/leads", leadsRoute);
