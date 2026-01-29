@@ -18,11 +18,7 @@ app.use(cors({
   origin: "*",
   credentials: true
 }));
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false
-}));
+
 
 app.get("/health", (req, res) => {
   res.json({ message: "API is running" });
