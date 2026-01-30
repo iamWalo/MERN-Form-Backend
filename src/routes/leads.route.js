@@ -1,5 +1,5 @@
 import { Router } from "express";
-import transporter from "../config/mailer1.js";
+import transporter from "../config/mailer.js";
 import validateForm from "../utils/validate.js";
 // import { formLimiter } from "../middlewares/rateLimiter.js";
 
