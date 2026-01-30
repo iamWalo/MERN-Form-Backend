@@ -1,16 +1,14 @@
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
+import { Resend } from "resend";
 
-dotenv.config();
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const sendMail = async ({ to, subject, html }) => {
+  await resend.emails.send({
+    from: "Landing <onboarding@resend.dev>",
+    to,
+    subject,
+    html,
+  });
+};
 
-export default transporter;
+export default sendMail;
