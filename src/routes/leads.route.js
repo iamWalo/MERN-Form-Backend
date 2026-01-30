@@ -5,7 +5,7 @@ import validateForm from "../utils/validate.js";
 
 const router = Router();
 
-router.post("/", formLimiter, async (req, res) => {
+router.post("/", async (req, res) => {
   const error = validateForm(req.body);
   if (error) {
     return res.status(400).json({ error });
