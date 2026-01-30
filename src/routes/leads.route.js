@@ -1,5 +1,5 @@
 import { Router } from "express";
-import transporter from "../config/mailer.js";
+import sendMail from "../config/mailer.js";
 import validateForm from "../utils/validate.js";
 // import { formLimiter } from "../middlewares/rateLimiter.js";
 
@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
   const { email, targetEmail, message } = req.body;
 
   try {
-    await transporter.sendMail({
+    await sendMail({
       from: `"Landing Form" <${process.env.EMAIL_USER}>`,
       to: targetEmail,
       subject: "New Message from MERN Form",
