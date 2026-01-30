@@ -1,5 +1,5 @@
 import rateLimit from "express-rate-limit";
-
+const { ipKeyGenerator } = require('express-rate-limit'); // important
 export const formLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 5, 
