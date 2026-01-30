@@ -1,11 +1,11 @@
 import { Router } from "express";
 import sendMail from "../config/mailer.js";
 import validateForm from "../utils/validate.js";
-// import { formLimiter } from "../middlewares/rateLimiter.js";
+import { formLimiter } from "../middlewares/rateLimiter.js";
 
 const router = Router();
 
-router.post("/", async (req, res) => {
+router.post("/", formLimiter, async (req, res) => {
   const error = validateForm(req.body);
   if (error) {
     return res.status(400).json({ error });
