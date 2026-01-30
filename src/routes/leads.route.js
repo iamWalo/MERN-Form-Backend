@@ -1,7 +1,7 @@
 import { Router } from "express";
 import transporter from "../config/mailer1.js";
 import validateForm from "../utils/validate.js";
-import { formLimiter } from "../middlewares/rateLimiter.js";
+// import { formLimiter } from "../middlewares/rateLimiter.js";
 
 const router = Router();
 
