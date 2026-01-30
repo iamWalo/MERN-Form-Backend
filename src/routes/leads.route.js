@@ -1,7 +1,7 @@
 import { Router } from "express";
 import sendMail from "../config/mailer.js";
 import validateForm from "../utils/validate.js";
-import { formLimiter } from "../middlewares/rateLimiter.js";
+// import { formLimiter } from "../middlewares/rateLimiter.js";
 
 const router = Router();
 
@@ -11,7 +11,7 @@ router.post("/", formLimiter, async (req, res) => {
     return res.status(400).json({ error });
   }
 
-  const { email, targetEmail, message } = req.body;
+  const { email, message } = req.body;
 
   try {
     await sendMail({
